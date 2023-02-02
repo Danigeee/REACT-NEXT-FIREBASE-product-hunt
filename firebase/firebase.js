@@ -1,13 +1,16 @@
-// import app from "firebase/app";
-import app from "firebase/compat/app";
+import {initializeApp} from 'firebase/app';
 import firebaseConfig from "./config";
-import { createUserWithEmailAndPassword ,getAuth, updateProfile, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile} from "@firebase/auth";
+import "firebase/firestore";
+import { getFirestore } from 'firebase/firestore'
+import { getStorage } from '@firebase/storage';
 
 class Firebase {
     constructor() {
-    app.initializeApp(firebaseConfig);
-    this.auth = getAuth();
+        const app = initializeApp(firebaseConfig);
+        this.auth = getAuth();
+        this.db = getFirestore(app);
+        this.storage = getStorage(this.app);
     }
 
     //registrar usuario

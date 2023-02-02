@@ -14,7 +14,7 @@ const STATE_INICIAL = {
   password: "",
 }
 
- function CrearCuenta() {
+function CrearCuenta() {
 
   const [error, setError] = useState(false)
 
